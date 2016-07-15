@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'restaurants#index'
 
   devise_for :users
 end
