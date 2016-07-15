@@ -76,6 +76,8 @@ GEM
     eventmachine (1.2.0.1)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -221,6 +223,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 4.2)
+  font-awesome-rails (~> 4.6, >= 4.6.3.1)
   guard (~> 2.14)
   guard-livereload (~> 2.5, >= 2.5.2)
   jbuilder (~> 2.0)
