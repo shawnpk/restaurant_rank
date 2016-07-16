@@ -1,0 +1,77 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-sm-6">
+        <h1>
+          Create a Restaurant Review
+        </h1>
+      </div>
+      <div class="col-lg-6 col-sm-6">
+        <ol class="breadcrumb pull-right">
+          <li>-->
+           <a href="#">
+              Home
+            </a>
+          </li>
+          <li>
+
+            <a href="#">
+              Pages
+            </a>
+          </li>
+          <li class="active">
+            About
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!--breadcrumbs end-->
+
+<div class="container">
+  <%= simple_form_for @restaurant do |form| %>
+    <div class="row">
+      <div class="col-xs-8">
+        <%= form.input :name, label: false, placeholder: 'Restaurant Name' %>
+      </div>
+      <div class="col-xs-4">
+        <%= form.select :category_id, Category.all.map { |form| [form.name, form.id] } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form.input :description, label: false, placeholder: 'Description' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= form.input :address1, label: false, placeholder: 'Address 1' %>
+      </div>
+      <div class="col-xs-6">
+        <%= form.input :address2, label: false, placeholder: 'Address 2' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <%= form.input :city, label: false, placeholder: 'City' %>
+      </div>
+      <div class="col-xs-4">
+        <%= form.input :state_provence, label: false, placeholder: 'State/Provence' %>
+      </div>
+      <div class="col-xs-4">
+        <%= form.input :postalcode, label: false, placeholder: 'Postal Code' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <%= form.input :phone, label: false, placeholder: 'Phone Number' %>
+      </div>
+      <div class="col-xs-6">
+        <%= form.input :website, label: false, placeholder: 'Website' %>
+      </div>
+    </div>
+
+    <%= form.submit 'Create Restaurant', class: 'btn btn-primary' %><br /><br />
+  <% end %>
+</div>

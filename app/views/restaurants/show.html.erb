@@ -1,0 +1,219 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4">
+        <h1>
+          <%= @restaurant.name %>
+        </h1>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <ol class="breadcrumb pull-right">
+          <li>
+            <a href="#">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Portfolio
+            </a>
+          </li>
+          <li class="active">
+            Portfolio single
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pf-img text-center">
+      </div>
+    </div>
+  </div>
+</div>
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <!-- begin:article -->
+      <div class="col-md-9 col-md-push-3">
+        <div class="row">
+          <div class="col-md-12 single-post">
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane fade in active" id="detail">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h2>
+                    </h2>
+                    <p>
+                      <% if @reviews.blank? %>
+                      This establishment has no reviews.  Be the first to share your dining experience!
+                      <% else %>
+                      <%= @restaurant.name %> has an average rating of
+                      (
+                      <%= @average_rating %>) stars
+                      <span class="star-rating" data-score=<%= @average_rating %>></span>
+                      and has been reviewed by
+                    <%= @reviews.count %>
+                    <%= "client".pluralize@reviews.count %>
+                    <% end %>
+                    <h3 class="text-muted">
+                      Restaurant Overview
+                    </h3>
+
+                    <%= link_to "Edit", edit_restaurant_path, class: "btn btn-warning btn-xs" %>
+                    <%= link_to "Delete",
+                    restaurant_path, method: :delete,  data: {confirm: "Are You Really Sure?"},
+                    class: "btn btn-danger btn-xs" %>
+
+                    <table class="table table-bordered">
+                      <tr>
+                        <td>
+                          <strong>
+                            Restaurant Name
+                          </strong>
+                        </td>
+                        <td>
+                          <%= @restaurant.name %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            Website
+                          </strong>
+                        </td>
+                        <td>
+                          <%= @restaurant.website %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            Address
+                          </strong>
+                        </td>
+                        <td>
+                          <%= @restaurant.address1 %>
+                          <span>
+                            <%= @restaurant.address2 %>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            City | State/Provence |
+                            <br />
+                            Postal Code
+                          </strong>
+                        </td>
+                        <td>
+                          <%= @restaurant.city.titleize %> |
+                          <span>
+                            <%= @restaurant.state_provence.upcase %> |
+                          </span>
+                          <span>
+                            <%= @restaurant.postalcode %>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>
+                            Telephone
+                          </strong>
+                        </td>
+                        <td>
+                          <%= @restaurant.phone %>
+                        </td>
+                      </tr>
+                    </table>
+                    <h3>
+                    </h3>
+                    <div class="row">
+                    </div>
+                    <h3>
+                      More About
+                      <%= @restaurant.name %>
+                    </h3>
+                    <p>
+                      <%= @restaurant.description %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+             <!--google map start-->
+<div class="contact-map">
+    <div id="map-canvas" style="width: 100%; height: 400px">
+    </div>
+</div>
+<!--google map end-->
+              <!-- break -->
+              <div class="tab-pane fade" id="location">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="map-property">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end:article -->
+      <!-- begin:sidebar -->
+      <div class="col-md-3 col-md-pull-9 sidebar">
+
+        <!-- break -->
+
+        <div class="widget widget-sidebar widget-white">
+          <div class="widget-header">
+            <h3>
+              Restaurant Reviews
+            </h3>
+          </div>
+          <!-- break -->
+          <div class="widget widget-sidebar widget-white">
+
+          </div>
+        </div>
+        <!-- end:sidebar -->
+      </div>
+    </div>
+  </div>
+  <!-- end:content -->
+  <!-- begin:blog -->
+</div>
+<!-- break -->
+</div>
+</div>
+<!-- break -->
+</div>
+<!-- end:agent -->
+</div>
+</div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&AMP;sensor=false">
+</script>
+
+
+
+<script>
+  $(document).ready(function() {
+    //Set the carousel options
+    $('#quote-carousel').carousel({
+      pause: true,
+      interval: 4000,
+    });
+  });
+
+</script>
