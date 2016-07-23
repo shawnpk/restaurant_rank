@@ -14,8 +14,8 @@ class RestaurantsController < ApplicationController
       flash[:success] = "#{@restaurant.name} has been created successfully."
       redirect_to @restaurant
     else
-      flash[:error] = "#{@restaurant.name} was not created. Please try again."
-      redirect_to :new
+      flash[:error] = "Restaurant was not created. Please try again."
+      render :new
     end
   end
 
