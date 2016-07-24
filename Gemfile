@@ -16,6 +16,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap-sass-extras', '~> 0.0.7'
 gem 'devise', '~> 4.2'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 group :development, :test do
   gem 'byebug'
