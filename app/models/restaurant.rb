@@ -10,7 +10,22 @@ class Restaurant < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  # def full_address
+  #   [address1, address2, city, state_provence, postalcode].join(', ')
+  # end
+
   def full_address
-    [address1, address2, city, state_provence, postalcode].join(', ')
+    [city, state_provence].join(', ')
+  end
+
+  def self.search(params)
+    restaurants = Restaurant.where(category_id: params[:category].to_i)
+
+    restaurants = restaurants.where("name like ? or description like ?",
+    "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+
+    restaurants = restaurants.near(params[:location], 25) if params[:location].present?
+
+    restaurants
   end
 end

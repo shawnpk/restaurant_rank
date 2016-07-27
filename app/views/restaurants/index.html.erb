@@ -30,5 +30,13 @@
 <!--breadcrumbs end-->
 
 <div class="container">
-  <%= link_to "Create a Restaurant Review", new_restaurant_path, class: 'btn btn-success' %><br /><br />
+  <%= link_to "Create a Restaurant Review", new_restaurant_path, class: 'btn btn-success' %>
+  
+  <%= form_tag search_restaurants_path, method: :get do |f| %>
+    <%= text_field_tag :search, nil, placeholder: 'What are you hungry for?' %>
+    <%= text_field_tag :location, nil, placeholder: 'Where do you want to eat?' %>
+    <%= select_tag :category, options_for_select(Category.all.map { |category| [category.name, category.id] }) %>
+    <%= submit_tag 'Search', class: 'btn btn-info' %>
+  <% end %>
+  <br /><br />
 </div>

@@ -1,0 +1,5 @@
+<div class="container">
+  <%= @restaurants.each do |r| %>
+    <p><%= r.name %> (<%= r.city %>, <%= r.state_provence %>)</p>
+  <% end %>
+</div>
