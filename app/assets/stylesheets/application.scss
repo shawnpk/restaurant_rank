@@ -14,6 +14,19 @@
  *= require_self
  */
 
+ .restaurant_listing {
+   list-style-type: none;
+ }
+
+ .restaurant_title {
+   color: #00B233;
+  //color: #1485CC;
+
+  &:hover {
+    color: #9D1309;
+  }
+ }
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'font-awesome'

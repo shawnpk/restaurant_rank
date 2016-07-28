@@ -1,5 +1,34 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-sm-6">
+        <h1>
+          Selected Restaurants
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <% @restaurants.each do |r| %>
-    <p><%= r.name.titleize %> (<%= r.city.titleize %>, <%= r.state_provence.upcase %>)</p>
-  <% end %>
+  <div class="row">
+    <% @restaurants.each do |r| %>
+      <div class="col-md-3">
+        <a href="#">
+          <% if r.image_url.present? %>
+            <%= image_tag r.image_url, class: 'img-responsive' %>
+          <% end %>
+        </a>
+        <h4>
+            <%= link_to r.name, r, class: 'restaurant_title'  %>
+        </h4>
+        <ul class='restaurant_listing'>
+          <li><%= r.city.titleize %>, <%= r.state_provence.upcase %></li>
+          <li><%= r.website %></li>
+          <li><%= r.phone %></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <br>
 </div>
