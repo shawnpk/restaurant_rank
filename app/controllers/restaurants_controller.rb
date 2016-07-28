@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @restaurants = Restaurant.order('created_at DESC')
+    @restaurants = Restaurant.all
   end
 
   def show

@@ -1,3 +1,29 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+          <%= @restaurant.name %> (<%= @restaurant.city %>, <%= @restaurant.state_provence %>)
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pf-img text-center">
+        <% if @restaurant.image_url.present? %>
+          <%= image_tag @restaurant.image_url(:restaurant_show) %>
+        <% else %>
+          <%= image_tag 'restaurant_show_dummy.png' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- begin:content -->
 <div id="content">
   <div class="container">
@@ -21,58 +47,40 @@
               </li>
             </p>
             </ul>
-            <% if @restaurant.image_url.present? %>
-              <div id="slider-property" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#slider-property" data-slide-to="0" class="">
-                    <%= image_tag @restaurant.image %>
-                  </li>
-                  <li data-target="#slider-property" data-slide-to="1" class="active">
-                  </li>
-                  <li data-target="#slider-property" data-slide-to="2">
-                  </li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item">
-                  </div>
-                  <div class="item active">
-                  </div>
-                  <div class="item">
-                  </div>
-                </div>
-                <a class="left carousel-control" href="#slider-property" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#slider-property" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-              </div>
-            <% end %>
+
             <div id="myTabContent" class="tab-content">
               <div class="tab-pane fade in active" id="detail">
                 <div class="row">
                   <div class="col-md-12">
-                    <h2><%= @restaurant.name %></h2>
+                    <h2><%= @restaurant.name.titleize %></h2>
 
                     <h3 class="text-muted">Restaurant Overview</h3>
                     <table class="table table-bordered">
                     <tr>
                       <td><strong>Restaurant Name</strong></td>
-                      <td><%= @restaurant.name %></td>
+                      <td><%= @restaurant.name.titleize %></td>
                     </tr>
                     <tr>
                       <td><strong>Website</strong></td>
-                      <td><%= @restaurant.website %></td>
+                      <td>
+                        <% if @restaurant.website.present? %>
+                          <%= link_to @restaurant.website, 'http://' + @restaurant.website, target: '_blank' %>
+                        <% end %>
+                      </td>
                     </tr>
                     <tr>
                       <td><strong>Address</strong></td>
-                      <td><%= @restaurant.address1 %><span><%= @restaurant.address2 %></span></td>
+                      <td><%= @restaurant.address1 %>
+                        <% if @restaurant.address2.present? %>
+                        , <span><%= @restaurant.address2 %></span>
+                        <% end %>
+                      </td>
                     </tr>
                     <tr>
-                      <td><strong>City | State/Provence |<br /> Postal Code </strong></td>
-                      <td><%= @restaurant.city %> |
+                      <td><strong>City, State/Provence  Postal Code </strong></td>
+                      <td><%= @restaurant.city.titleize %>,
                         <span>
-                          <%= @restaurant.state_provence %> |
+                          <%= @restaurant.state_provence.upcase %>
                         </span>
                         <span>
                         <%= @restaurant.postalcode %>
@@ -85,7 +93,7 @@
                     </tr>
                     </table>
                     <h3></h3>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-md-4 col-sm-4">
                         <ul>
                           <li><i class="fa fa-check"></i> Air conditioning</li>
@@ -122,9 +130,9 @@
                           <li><i class="fa fa-check"></i> Video</li>
                         </ul>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <h3>Property Description</h3>
+                    <!-- <h3>Property Description</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -134,7 +142,10 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.</p>
+                    consequat.</p> -->
+
+                    <h2>More about <%= @restaurant.name %></h2>
+                    <p><%= @restaurant.description %></p>
                   </div>
                 </div>
               </div>

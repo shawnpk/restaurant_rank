@@ -1530,7 +1530,7 @@ a.btn-purchase:focus {
 .clients-list li:hover img.color-img { display: block }
 /*portfolio*/
 .pf-img img {
-    width: 100%;
+    width: 65%;
     border-radius: 1px;
     -moz-border-radius: 1px;
     -webkit-border-radius: 1px;

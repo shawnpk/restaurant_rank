@@ -12,22 +12,30 @@
 
 <div class="container">
   <div class="row">
-    <% @restaurants.each do |r| %>
-      <div class="col-md-3">
-        <a href="#">
-          <% if r.image_url.present? %>
-            <%= image_tag r.image_url, class: 'img-responsive' %>
-          <% end %>
-        </a>
-        <h4>
-            <%= link_to r.name, r, class: 'restaurant_title'  %>
-        </h4>
-        <ul class='restaurant_listing'>
-          <li><%= r.city.titleize %>, <%= r.state_provence.upcase %></li>
-          <li><%= r.website %></li>
-          <li><%= r.phone %></li>
-        </ul>
-      </div>
+    <% if @restaurants.present? %>
+      <% @restaurants.each do |r| %>
+        <div class="col-md-3">
+          <a href="#">
+            <% if r.image_url.present? %>
+              <%= link_to (image_tag r.image_url(:search_page)), r %>
+            <% else %>
+              <%= link_to (image_tag "search_page_dummy.png"), r %>
+            <% end %>
+          </a>
+          <h4>
+              <%= link_to r.name, r, class: 'restaurant_title'  %>
+          </h4>
+          <ul class='restaurant_listing'>
+            <li><%= r.city.titleize %>, <%= r.state_provence.upcase %></li>
+            <% if r.website.present? %>
+              <li><%= link_to r.website, "http://" + r.website, target: '_blank' %></li>
+            <% end %>
+            <li><%= r.phone %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% else %>
+      <p>There are no restaurants that match your request. Please try again.</p>
     <% end %>
   </div>
   <br>
