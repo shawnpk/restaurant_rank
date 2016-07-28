@@ -1,5 +1,5 @@
 <div class="container">
-  <%= @restaurants.each do |r| %>
-    <p><%= r.name %> (<%= r.city %>, <%= r.state_provence %>)</p>
+  <% @restaurants.each do |r| %>
+    <p><%= r.name.titleize %> (<%= r.city.titleize %>, <%= r.state_provence.upcase %>)</p>
   <% end %>
 </div>
