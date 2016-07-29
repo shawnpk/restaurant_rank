@@ -3,6 +3,18 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @fast_food_restaurants =    Restaurant.where(category_id: 1)
+    @fast_food_search = Category.find(1)
+    @seafood_restaurants =      Restaurant.where(category_id: 2)
+    @seafood_search =   Category.find(2)
+    @steak_house_restaurants =  Restaurant.where(category_id: 3)
+    @steak_house_search =   Category.find(3)
+    @chinese_restaurants =      Restaurant.where(category_id: 4)
+    @chinese_search =   Category.find(4)
+    @family_restaurants =       Restaurant.where(category_id: 5)
+    @family_search =   Category.find(5)
+    @coffee_restaurants =       Restaurant.where(category_id: 6)
+    @coffee_search =   Category.find(6)
   end
 
   def show

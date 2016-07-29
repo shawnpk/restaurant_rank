@@ -27,6 +27,10 @@
   }
  }
 
+ .restaurant_li {
+   list-style: none;
+ }
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'font-awesome'

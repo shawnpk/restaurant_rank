@@ -12,6 +12,8 @@
 
 <%= render 'restaurants/slider' %>
 
+<br>
+
 <div class="container">
   <%= link_to "Create a Restaurant", new_restaurant_path, class: 'btn btn-success' %>
 
@@ -39,5 +41,8 @@
 
     <%= submit_tag 'Search', class: 'btn btn-info' %>
   <% end %>
-  <br /><br />
+  <hr>
+
+  <%= render 'restaurants/categories' %>
+
 </div>

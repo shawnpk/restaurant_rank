@@ -1,0 +1,60 @@
+<div class="row span12 text-center">
+  <div class="col-md-4">
+    <h4><strong>Fast Food</strong></h4>
+    <% @fast_food_restaurants.limit(4).each do |restaurant| %>
+      <ul class='restaurant_li'>
+        <li><%= link_to restaurant.name, restaurant %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'See All', search_restaurants_path(category: @fast_food_search.id), class: 'btn btn-info btn-xs' %>
+  </div>
+  <div class="col-md-4">
+    <h4><strong>Seafood</strong></h4>
+    <% @seafood_restaurants.limit(4).each do |restaurant| %>
+      <ul class='restaurant_li'>
+        <li><%= link_to restaurant.name, restaurant %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'See All', search_restaurants_path(category: @seafood_search.id), class: 'btn btn-info btn-xs' %>
+  </div>
+  <div class="col-md-4">
+    <h4><strong>Steak House</strong></h4>
+    <% @steak_house_restaurants.limit(4).each do |restaurant| %>
+      <ul class='restaurant_li'>
+        <li><%= link_to restaurant.name, restaurant %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'See All', search_restaurants_path(category: @steak_house_search.id), class: 'btn btn-info btn-xs' %>
+  </div>
+</div>
+<hr>
+<div class="row span12 text-center">
+  <div class="col-md-4">
+    <h4><strong>Chinese</strong></h4>
+    <% @chinese_restaurants.limit(4).each do |restaurant| %>
+      <ul class='restaurant_li'>
+        <li><%= link_to restaurant.name, restaurant %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'See All', search_restaurants_path(category: @chinese_search.id), class: 'btn btn-info btn-xs' %>
+  </div>
+  <div class="col-md-4">
+    <h4><strong>Family</strong></h4>
+    <% @family_restaurants.limit(4).each do |restaurant| %>
+      <ul class='restaurant_li'>
+        <li><%= link_to restaurant.name, restaurant %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'See All', search_restaurants_path(category: @family_search.id), class: 'btn btn-info btn-xs' %>
+  </div>
+  <div class="col-md-4">
+    <h4><strong>Coffee</strong></h4>
+    <% @coffee_restaurants.limit(4).each do |restaurant| %>
+      <ul class='restaurant_li'>
+        <li><%= link_to restaurant.name, restaurant %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'See All', search_restaurants_path(category: @coffee_search.id), class: 'btn btn-info btn-xs' %>
+  </div>
+</div>
+<br>
