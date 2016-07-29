@@ -66,7 +66,7 @@
 <script>
   //google map
   function initialize() {
-    var myLatlng = new google.maps.LatLng(<%= @user_lat %>, <%= @user_long %>);
+    var myLatlng = new google.maps.LatLng(<%= @vlat %>, <%= @vlon %>);
     var mapOptions = {
       zoom: 12,
       center: myLatlng,
