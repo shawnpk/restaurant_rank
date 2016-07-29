@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reviews
+
+  geocoded_by :full_address
+  after_validation :geocode
+
+  def full_address
+    [city, state_provence].join(', ')
+  end
 end

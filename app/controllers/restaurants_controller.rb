@@ -2,25 +2,52 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @visitor_latitude = request.location.latitude
-    @visitor_longitude = request.location.longitude
+    @user = current_user
 
-    # @visitor_latitude = 46.8083268
-    # @visitor_longitude = -100.7837392
+    if current_user
+      @vlat = @user.latitude
+      @vlon = @user.longitude
 
-    @restaurants = Restaurant.near([@visitor_latitude, @visitor_longitude], 50).order('created_at ASC')
-    @fast_food_restaurants =    Restaurant.where(category_id: 1).near([@visitor_latitude, @visitor_longitude], 50)
-    @fast_food_search = Category.find(1)
-    @seafood_restaurants =      Restaurant.where(category_id: 2).near([@visitor_latitude, @visitor_longitude], 50)
-    @seafood_search =   Category.find(2)
-    @steak_house_restaurants =  Restaurant.where(category_id: 3).near([@visitor_latitude, @visitor_longitude], 50)
-    @steak_house_search =   Category.find(3)
-    @chinese_restaurants =      Restaurant.where(category_id: 4).near([@visitor_latitude, @visitor_longitude], 50)
-    @chinese_search =   Category.find(4)
-    @family_restaurants =       Restaurant.where(category_id: 5).near([@visitor_latitude, @visitor_longitude], 50)
-    @family_search =   Category.find(5)
-    @coffee_restaurants =       Restaurant.where(category_id: 6).near([@visitor_latitude, @visitor_longitude], 50)
-    @coffee_search =   Category.find(6)
+      visitor_latitude = @user.latitude
+      visitor_longitude = @user.longitude
+
+      @restaurants = Restaurant.near([visitor_latitude, visitor_longitude], 200)
+      @fast_food_restaurants = Restaurant.where(category_id: 1).near([visitor_latitude, visitor_longitude], 200)
+      @fast_food_search = Category.find(1)
+      @seafood_restaurants = Restaurant.where(category_id: 2).near([visitor_latitude, visitor_longitude], 200)
+      @seafood_search = Category.find(2)
+      @steak_house_restaurants = Restaurant.where(category_id: 3).near([visitor_latitude, visitor_longitude], 200)
+      @steak_house_search = Category.find(3)
+      @chinese_restaurants = Restaurant.where(category_id: 4).near([visitor_latitude, visitor_longitude], 200)
+      @chinese_search = Category.find(4)
+      @family_restaurants = Restaurant.where(category_id: 5).near([visitor_latitude, visitor_longitude], 200)
+      @family_search = Category.find(5)
+      @coffee_restaurants = Restaurant.where(category_id: 6).near([visitor_latitude, visitor_longitude], 200)
+      @coffee_search = Category.find(6)
+     else
+      visitor_latitude = request.location.latitude
+      visitor_longitude = request.location.longitude
+
+      # visitor_latitude = 33.7489954
+      # visitor_longitude = -84.3879824
+
+      @vlat = visitor_latitude
+      @vlon = visitor_longitude
+
+      @restaurants = Restaurant.near([visitor_latitude, visitor_longitude], 200)
+      @fast_food_restaurants = Restaurant.where(category_id: 1).near([visitor_latitude, visitor_longitude], 200)
+      @fast_food_search = Category.find(1)
+      @seafood_restaurants = Restaurant.where(category_id: 2).near([visitor_latitude, visitor_longitude], 200)
+      @seafood_search = Category.find(2)
+      @steak_house_restaurants = Restaurant.where(category_id: 3).near([visitor_latitude, visitor_longitude], 200)
+      @steak_house_search = Category.find(3)
+      @chinese_restaurants = Restaurant.where(category_id: 4).near([visitor_latitude, visitor_longitude], 200)
+      @chinese_search = Category.find(4)
+      @family_restaurants = Restaurant.where(category_id: 5).near([visitor_latitude, visitor_longitude], 200)
+      @family_search = Category.find(5)
+      @coffee_restaurants = Restaurant.where(category_id: 6).near([visitor_latitude, visitor_longitude], 200)
+      @coffee_search = Category.find(6)
+    end
   end
 
   def show
