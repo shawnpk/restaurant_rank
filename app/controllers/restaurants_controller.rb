@@ -28,9 +28,6 @@ class RestaurantsController < ApplicationController
       visitor_latitude = request.location.latitude
       visitor_longitude = request.location.longitude
 
-      # visitor_latitude = 33.7489954
-      # visitor_longitude = -84.3879824
-
       @vlat = visitor_latitude
       @vlon = visitor_longitude
 
